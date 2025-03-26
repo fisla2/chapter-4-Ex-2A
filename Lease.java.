@@ -1,0 +1,30 @@
+public class TestLease {
+    public static void main(String[] args) {
+        // Create a Lease object
+        Lease lease = new Lease();
+
+        // Display default lease details
+        System.out.println("Default Lease Details:");
+        System.out.println("Tenant Name: " + lease.getTenantName());
+        System.out.println("Apartment Number: " + lease.getApartmentNumber());
+        System.out.println("Monthly Rent: $" + lease.getMonthlyRent());
+        System.out.println("Lease Term: " + lease.getLeaseTerm() + " months\n");
+
+        // Modify the lease details
+        lease.setTenantName("John Doe");
+        lease.setApartmentNumber(101);
+        lease.setMonthlyRent(1200);
+        lease.setLeaseTerm(24);
+
+        // Display modified lease details
+        System.out.println("Updated Lease Details:");
+        System.out.println("Tenant Name: " + lease.getTenantName());
+        System.out.println("Apartment Number: " + lease.getApartmentNumber());
+        System.out.println("Monthly Rent: $" + lease.getMonthlyRent());
+        System.out.println("Lease Term: " + lease.getLeaseTerm() + " months\n");
+
+        // Add pet fee
+        lease.addPetFee();
+        System.out.println("New Monthly Rent after Pet Fee: $" + lease.getMonthlyRent());
+    }
+}
