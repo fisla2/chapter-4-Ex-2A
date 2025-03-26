@@ -1,0 +1,60 @@
+import java.util.Scanner;
+
+public class TestLease {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Create Lease objects
+        Lease lease1 = getData(scanner);
+        Lease lease2 = getData(scanner);
+        Lease lease3 = getData(scanner);
+        Lease lease4 = new Lease(); // Default constructor
+
+        // Display values for lease1
+        System.out.println("\nInitial Lease1 Details:");
+        showValues(lease1);
+        
+        // Add pet fee to lease1
+        lease1.addPetFee();
+        
+        // Display values again to confirm pet fee addition
+        System.out.println("\nLease1 Details after adding Pet Fee:");
+        showValues(lease1);
+
+        // Display values for other lease objects
+        System.out.println("\nLease2 Details:");
+        showValues(lease2);
+
+        System.out.println("\nLease3 Details:");
+        showValues(lease3);
+
+        System.out.println("\nLease4 (Default) Details:");
+        showValues(lease4);
+    }
+
+    // Method to prompt user for lease details
+    public static Lease getData(Scanner scanner) {
+        System.out.print("Enter tenant name: ");
+        String tenantName = scanner.nextLine();
+
+        System.out.print("Enter apartment number: ");
+        int apartmentNumber = scanner.nextInt();
+        
+        System.out.print("Enter monthly rent: ");
+        double monthlyRent = scanner.nextDouble();
+        
+        System.out.print("Enter lease term (months): ");
+        int leaseTerm = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+        
+        return new Lease(tenantName, apartmentNumber, monthlyRent, leaseTerm);
+    }
+
+    // Method to display lease details
+    public static void showValues(Lease lease) {
+        System.out.println("Tenant Name: " + lease.getTenantName());
+        System.out.println("Apartment Number: " + lease.getApartmentNumber());
+        System.out.println("Monthly Rent: $" + lease.getMonthlyRent());
+        System.out.println("Lease Term: " + lease.getLeaseTerm() + " months");
+    }
+}
